@@ -1,6 +1,6 @@
-package models;
+package Enums;
 
-public enum Positions {
+public enum PositionEnum {
 	first,
 	second, 
 	third,

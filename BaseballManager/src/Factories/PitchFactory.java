@@ -25,17 +25,20 @@ public class PitchFactory {
 			switch(pitch) {
 				case Change:
 					pitchesArsenal = new ChangeDecorator(pitchesArsenal);
+					break;
 				case Curve:
 					pitchesArsenal = new CurveDecorator(pitchesArsenal);
+					break;
 				case Fastball:
 					pitchesArsenal = new FastballDecorator(pitchesArsenal);
+					break;
 				case Slider:
 					pitchesArsenal = new SliderDecorator(pitchesArsenal);
+					break;
 			default:
 				break;
 			}
 		}
-		pitchesArsenal.Decorate();
-		return pitchesArsenal.pitches;
+		return pitchesArsenal.GetPitches();
 	}
 }

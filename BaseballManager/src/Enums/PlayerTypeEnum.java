@@ -1,6 +1,6 @@
 package Enums;
 
-public enum PlayerType {
+public enum PlayerTypeEnum {
 	Pitcher,
 	Position
 }

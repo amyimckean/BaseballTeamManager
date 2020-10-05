@@ -2,11 +2,12 @@ package Factories;
 
 import java.util.List;
 
-import Enums.PlayerType;
+import Enums.PlayerTypeEnum;
 import models.PlayerModel;
 public class CurrentTeam {
 	
-	public List<PlayerModel> GetPlayers(PlayerType type){
+	@SuppressWarnings("unchecked")
+	public List<PlayerModel> GetPlayers(PlayerTypeEnum type){
 		CurrentTeamFactory factory = new CurrentTeamFactory();
 		switch(type) {
 		case Pitcher:

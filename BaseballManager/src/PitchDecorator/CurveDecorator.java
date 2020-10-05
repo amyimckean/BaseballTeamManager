@@ -1,19 +1,24 @@
 package PitchDecorator;
 
+import java.util.List;
+
 import Enums.PitchTypeEnum;
 import models.PitchModel;
 
 public class CurveDecorator extends PitchArsenalDecorator {
-
+	PitchArsenal arsenal;
+	
 	public CurveDecorator(PitchArsenal arsenal) {
-		super(arsenal);
+		this.arsenal = arsenal;
 	}
 		
-	public void Decorate() {
+	public List<PitchModel> GetPitches() {
 		PitchModel pitch = new PitchModel();
 		pitch.speed = 85;
 		pitch.pitch = PitchTypeEnum.Curve;
-		
+		List<PitchModel> pitches = arsenal.GetPitches();
 		pitches.add(pitch);
+		
+		return pitches;
 	}
 }

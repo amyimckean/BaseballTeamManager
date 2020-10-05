@@ -16,7 +16,7 @@ class CurrentTeamTests {
 	@Test
 	void GetPitcherRandyJohnsonTests() {
 		CurrentTeam team = new CurrentTeam();
-		List<PlayerModel> list = team.GetPlayers(PlayerType.Pitcher);
+		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Pitcher);
 		
 		Assert.assertTrue(list.stream().anyMatch((x) -> x.name == "Randy Johnson"));
 	}
@@ -24,7 +24,7 @@ class CurrentTeamTests {
 	@Test
 	void GetPitcherRandyJohnsonThrowsTests() {
 		CurrentTeam team = new CurrentTeam();
-		List<PlayerModel> list = team.GetPlayers(PlayerType.Pitcher);
+		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Pitcher);
 		
 		Assert.assertTrue(list.stream().anyMatch((x) -> x.throwing == LeftRightEnum.Left && x.name == "Randy Johnson"));
 	}
@@ -32,7 +32,7 @@ class CurrentTeamTests {
 	@Test
 	void GetPitcherRandyJohnsonPitchTests() {
 		CurrentTeam team = new CurrentTeam();
-		PitcherModel pitcher = (PitcherModel) team.GetPlayers(PlayerType.Pitcher).stream()
+		PitcherModel pitcher = (PitcherModel) team.GetPlayers(PlayerTypeEnum.Pitcher).stream()
 				.filter(x -> x.name == "Randy Johnson")
 	            .findFirst()
 	            .get();
@@ -43,7 +43,7 @@ class CurrentTeamTests {
 	@Test
 	void GetPitcherNormCharltonTests() {
 		CurrentTeam team = new CurrentTeam();
-		List<PlayerModel> list = team.GetPlayers(PlayerType.Pitcher);
+		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Pitcher);
 		
 		Assert.assertTrue(list.stream().anyMatch((x) -> x.name == "Norm Charlton"));
 	}
@@ -51,7 +51,7 @@ class CurrentTeamTests {
 	@Test
 	void GetPitcherNormCharltonThrowsTests() {
 		CurrentTeam team = new CurrentTeam();
-		List<PlayerModel> list = team.GetPlayers(PlayerType.Pitcher);
+		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Pitcher);
 		
 		Assert.assertTrue(list.stream().anyMatch((x) -> x.throwing == LeftRightEnum.Left && x.name == "Randy Johnson"));
 	}
@@ -59,7 +59,7 @@ class CurrentTeamTests {
 	@Test
 	void GetPlayerGriffeyTests() {
 		CurrentTeam team = new CurrentTeam();
-		List<PlayerModel> list = team.GetPlayers(PlayerType.Position);
+		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Position);
 		
 		Assert.assertTrue(list.stream().anyMatch((x) -> x.name == "Ken Griffey Jr."));
 	}
@@ -67,7 +67,7 @@ class CurrentTeamTests {
 	@Test
 	void GetPitcherGriffeyThrowsTests() {
 		CurrentTeam team = new CurrentTeam();
-		List<PlayerModel> list = team.GetPlayers(PlayerType.Position);
+		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Position);
 		
 		Assert.assertTrue(list.stream().anyMatch((x) -> x.throwing == LeftRightEnum.Left && x.name == "Ken Griffey Jr."));
 	}
@@ -75,7 +75,7 @@ class CurrentTeamTests {
 	@Test
 	void GetPitcherGriffeyBatsTests() {
 		CurrentTeam team = new CurrentTeam();
-		List<PlayerModel> list = team.GetPlayers(PlayerType.Position);
+		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Position);
 		
 		Assert.assertTrue(list.stream().anyMatch((x) -> x.bats == LeftRightEnum.Left && x.name == "Ken Griffey Jr."));
 	}
@@ -83,7 +83,7 @@ class CurrentTeamTests {
 	@Test
 	void GetPitcherEdgarMartinezTests() {
 		CurrentTeam team = new CurrentTeam();
-		List<PlayerModel> list = team.GetPlayers(PlayerType.Position);
+		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Position);
 		
 		Assert.assertTrue(list.stream().anyMatch((x) -> x.name == "Edgar Martinez"));
 	}
@@ -91,7 +91,7 @@ class CurrentTeamTests {
 	@Test
 	void GetPitcherEdgarMartinezThrowsTests() {
 		CurrentTeam team = new CurrentTeam();
-		List<PlayerModel> list = team.GetPlayers(PlayerType.Position);
+		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Position);
 		
 		Assert.assertTrue(list.stream().anyMatch((x) -> x.throwing == LeftRightEnum.Right && x.name == "Edgar Martinez"));
 	}
@@ -99,7 +99,7 @@ class CurrentTeamTests {
 	@Test
 	void GetPitcherEdgarMartinezBatsTests() {
 		CurrentTeam team = new CurrentTeam();
-		List<PlayerModel> list = team.GetPlayers(PlayerType.Position);
+		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Position);
 		
 		Assert.assertTrue(list.stream().anyMatch((x) -> x.bats == LeftRightEnum.Right && x.name == "Edgar Martinez"));
 	}

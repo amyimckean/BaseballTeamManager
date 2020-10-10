@@ -2,7 +2,7 @@ package PitchDecorator;
 
 import java.util.List;
 
-import models.PitchModel;
+import Models.PitchModel;
 
 public abstract class PitchArsenalDecorator extends PitchArsenal {
 	public abstract List<PitchModel> GetPitches();

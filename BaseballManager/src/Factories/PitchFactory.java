@@ -3,8 +3,8 @@ package Factories;
 import java.util.List;
 
 import Enums.PitchTypeEnum;
+import Models.PitchModel;
 import PitchDecorator.*;
-import models.PitchModel;
 
 public class PitchFactory {
 	private static PitchFactory factory;

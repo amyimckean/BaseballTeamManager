@@ -9,11 +9,9 @@ import org.junit.jupiter.api.Test;
 
 import Enums.*;
 import Factories.*;
-import models.PitchModel;
-import models.PitcherModel;
-import models.PlayerModel;
+import Models.PitchModel;
 
-class PitchFactoryTests {
+class PitchDecoratorTests {
 
 	@Test
 	void GetPitchesCFS() {
@@ -23,10 +21,10 @@ class PitchFactoryTests {
 		pitches.add(PitchTypeEnum.Slider);
 		List<PitchModel> list = PitchFactory.getInstance().getPitches(pitches);
 		
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.pitch == PitchTypeEnum.Curve));
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.pitch == PitchTypeEnum.Fastball));
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.pitch == PitchTypeEnum.Slider));
-		Assert.assertTrue(!list.stream().anyMatch((x) -> x.pitch == PitchTypeEnum.Change));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getPitch() == PitchTypeEnum.Curve));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getPitch() == PitchTypeEnum.Fastball));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getPitch() == PitchTypeEnum.Slider));
+		Assert.assertTrue(!list.stream().anyMatch((x) -> x.getPitch() == PitchTypeEnum.Change));
 	}
 
 
@@ -37,8 +35,8 @@ class PitchFactoryTests {
 		pitches.add(PitchTypeEnum.Fastball);
 		List<PitchModel> list = PitchFactory.getInstance().getPitches(pitches);
 		
-		Assert.assertTrue(!list.stream().anyMatch((x) -> x.pitch == PitchTypeEnum.Change));
-		Assert.assertTrue(!list.stream().anyMatch((x) -> x.pitch == PitchTypeEnum.Slider));
+		Assert.assertTrue(!list.stream().anyMatch((x) -> x.getPitch() == PitchTypeEnum.Change));
+		Assert.assertTrue(!list.stream().anyMatch((x) -> x.getPitch() == PitchTypeEnum.Slider));
 	}
 	
 	@Test
@@ -49,9 +47,9 @@ class PitchFactoryTests {
 		pitches.add(PitchTypeEnum.Change);
 		List<PitchModel> list = PitchFactory.getInstance().getPitches(pitches);
 		
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.pitch == PitchTypeEnum.Curve));
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.pitch == PitchTypeEnum.Fastball));
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.pitch == PitchTypeEnum.Change));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getPitch() == PitchTypeEnum.Curve));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getPitch() == PitchTypeEnum.Fastball));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getPitch() == PitchTypeEnum.Change));
 	}
 
 

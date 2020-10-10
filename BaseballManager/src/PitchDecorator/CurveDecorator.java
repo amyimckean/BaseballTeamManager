@@ -3,7 +3,7 @@ package PitchDecorator;
 import java.util.List;
 
 import Enums.PitchTypeEnum;
-import models.PitchModel;
+import Models.PitchModel;
 
 public class CurveDecorator extends PitchArsenalDecorator {
 	PitchArsenal arsenal;
@@ -14,8 +14,8 @@ public class CurveDecorator extends PitchArsenalDecorator {
 		
 	public List<PitchModel> GetPitches() {
 		PitchModel pitch = new PitchModel();
-		pitch.speed = 85;
-		pitch.pitch = PitchTypeEnum.Curve;
+		pitch.setSpeed(85);
+		pitch.setPitch(PitchTypeEnum.Curve);
 		List<PitchModel> pitches = arsenal.GetPitches();
 		pitches.add(pitch);
 		

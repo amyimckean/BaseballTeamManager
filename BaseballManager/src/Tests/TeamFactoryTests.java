@@ -8,17 +8,17 @@ import org.junit.jupiter.api.Test;
 
 import Enums.*;
 import Factories.*;
-import models.PitcherModel;
-import models.PlayerModel;
+import Models.PitcherModel;
+import Models.PlayerModel;
 
-class CurrentTeamTests {
+class TeamFactoryTests {
 
 	@Test
 	void GetPitcherRandyJohnsonTests() {
 		CurrentTeam team = new CurrentTeam();
 		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Pitcher);
 		
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.name == "Randy Johnson"));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getName() == "Randy Johnson"));
 	}
 
 	@Test
@@ -26,18 +26,18 @@ class CurrentTeamTests {
 		CurrentTeam team = new CurrentTeam();
 		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Pitcher);
 		
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.throwing == LeftRightEnum.Left && x.name == "Randy Johnson"));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getThrows() == LeftRightEnum.Left && x.getName() == "Randy Johnson"));
 	}
 
 	@Test
 	void GetPitcherRandyJohnsonPitchTests() {
 		CurrentTeam team = new CurrentTeam();
 		PitcherModel pitcher = (PitcherModel) team.GetPlayers(PlayerTypeEnum.Pitcher).stream()
-				.filter(x -> x.name == "Randy Johnson")
+				.filter(x -> x.getName() == "Randy Johnson")
 	            .findFirst()
 	            .get();
 		System.out.print(pitcher);
-		Assert.assertTrue(pitcher.pitches.stream().anyMatch((x) -> x.pitch == PitchTypeEnum.Slider));
+		Assert.assertTrue(pitcher.pitches.stream().anyMatch((x) -> x.getPitch() == PitchTypeEnum.Slider));
 	}
 
 	@Test
@@ -45,7 +45,7 @@ class CurrentTeamTests {
 		CurrentTeam team = new CurrentTeam();
 		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Pitcher);
 		
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.name == "Norm Charlton"));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getName() == "Norm Charlton"));
 	}
 
 	@Test
@@ -53,7 +53,7 @@ class CurrentTeamTests {
 		CurrentTeam team = new CurrentTeam();
 		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Pitcher);
 		
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.throwing == LeftRightEnum.Left && x.name == "Randy Johnson"));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getThrows() == LeftRightEnum.Left && x.getName() == "Randy Johnson"));
 	}
 
 	@Test
@@ -61,7 +61,7 @@ class CurrentTeamTests {
 		CurrentTeam team = new CurrentTeam();
 		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Position);
 		
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.name == "Ken Griffey Jr."));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getName() == "Ken Griffey Jr."));
 	}
 
 	@Test
@@ -69,7 +69,7 @@ class CurrentTeamTests {
 		CurrentTeam team = new CurrentTeam();
 		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Position);
 		
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.throwing == LeftRightEnum.Left && x.name == "Ken Griffey Jr."));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getThrows() == LeftRightEnum.Left && x.getName() == "Ken Griffey Jr."));
 	}
 
 	@Test
@@ -77,7 +77,7 @@ class CurrentTeamTests {
 		CurrentTeam team = new CurrentTeam();
 		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Position);
 		
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.bats == LeftRightEnum.Left && x.name == "Ken Griffey Jr."));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getBats() == LeftRightEnum.Left && x.getName() == "Ken Griffey Jr."));
 	}
 
 	@Test
@@ -85,7 +85,7 @@ class CurrentTeamTests {
 		CurrentTeam team = new CurrentTeam();
 		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Position);
 		
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.name == "Edgar Martinez"));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getName() == "Edgar Martinez"));
 	}
 
 	@Test
@@ -93,7 +93,7 @@ class CurrentTeamTests {
 		CurrentTeam team = new CurrentTeam();
 		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Position);
 		
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.throwing == LeftRightEnum.Right && x.name == "Edgar Martinez"));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getThrows() == LeftRightEnum.Right && x.getName() == "Edgar Martinez"));
 	}
 
 	@Test
@@ -101,6 +101,6 @@ class CurrentTeamTests {
 		CurrentTeam team = new CurrentTeam();
 		List<PlayerModel> list = team.GetPlayers(PlayerTypeEnum.Position);
 		
-		Assert.assertTrue(list.stream().anyMatch((x) -> x.bats == LeftRightEnum.Right && x.name == "Edgar Martinez"));
+		Assert.assertTrue(list.stream().anyMatch((x) -> x.getBats() == LeftRightEnum.Right && x.getName() == "Edgar Martinez"));
 	}
 }

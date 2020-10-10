@@ -3,7 +3,7 @@ package PitchDecorator;
 import java.util.List;
 
 import Enums.PitchTypeEnum;
-import models.PitchModel;
+import Models.PitchModel;
 
 public class FastballDecorator extends PitchArsenalDecorator {
 	PitchArsenal arsenal;
@@ -14,8 +14,8 @@ public class FastballDecorator extends PitchArsenalDecorator {
 		
 	public List<PitchModel> GetPitches() {
 		PitchModel pitch = new PitchModel();
-		pitch.speed = 95;
-		pitch.pitch = PitchTypeEnum.Fastball;
+		pitch.setSpeed(95);
+		pitch.setPitch( PitchTypeEnum.Fastball);
 		List<PitchModel> pitches = arsenal.GetPitches();
 		pitches.add(pitch);
 		

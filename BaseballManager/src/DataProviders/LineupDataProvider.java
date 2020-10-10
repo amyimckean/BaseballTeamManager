@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import Enums.*;
 import Factories.*;
-import models.*;
+import Models.*;
 
 public class LineupDataProvider {
 	public static PitcherModel GetPitcher1(){

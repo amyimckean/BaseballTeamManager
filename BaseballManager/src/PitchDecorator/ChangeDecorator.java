@@ -3,7 +3,7 @@ package PitchDecorator;
 import java.util.List;
 
 import Enums.PitchTypeEnum;
-import models.PitchModel;
+import Models.PitchModel;
 
 public class ChangeDecorator extends PitchArsenalDecorator {
 	PitchArsenal arsenal;
@@ -14,8 +14,8 @@ public class ChangeDecorator extends PitchArsenalDecorator {
 	
 	public List<PitchModel> GetPitches() {
 		PitchModel pitch = new PitchModel();
-		pitch.speed = 75;
-		pitch.pitch = PitchTypeEnum.Change;
+		pitch.setSpeed(75);
+		pitch.setPitch(PitchTypeEnum.Change);
 		List<PitchModel> pitches = arsenal.GetPitches();
 		pitches.add(pitch);
 		

@@ -3,7 +3,8 @@ package Factories;
 import java.util.List;
 
 import Enums.PlayerTypeEnum;
-import models.PlayerModel;
+import Models.PlayerModel;
+
 public class CurrentTeam {
 	
 	@SuppressWarnings("unchecked")
@@ -17,5 +18,4 @@ public class CurrentTeam {
 		}
 		return null;
 	}
-
 }

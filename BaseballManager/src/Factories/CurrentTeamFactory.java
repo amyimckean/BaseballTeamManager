@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DataProviders.LineupDataProvider;
-import models.*;
+import Models.*;
 
 public class CurrentTeamFactory implements PlayerFactory {
 
@@ -15,6 +15,9 @@ public class CurrentTeamFactory implements PlayerFactory {
 		pitchers.add(LineupDataProvider.GetPitcher3());
 		pitchers.add(LineupDataProvider.GetPitcher4());
 		pitchers.add(LineupDataProvider.GetPitcher5());
+		for(int i = 0; i < pitchers.size(); ++i){
+			pitchers.get(i).setNumber(i);
+		}
 		return pitchers;
 	}
 
@@ -32,6 +35,9 @@ public class CurrentTeamFactory implements PlayerFactory {
 		players.add(LineupDataProvider.GetPlayer10());
 		players.add(LineupDataProvider.GetPlayer11());
 		players.add(LineupDataProvider.GetPlayer12());
+		for(int i = 0; i < players.size(); ++i){
+			players.get(i).setNumber(i+10);
+		}
 		return players;
 	}
 }

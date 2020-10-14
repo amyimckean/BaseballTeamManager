@@ -1,4 +1,4 @@
-package Views2;
+package Views;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

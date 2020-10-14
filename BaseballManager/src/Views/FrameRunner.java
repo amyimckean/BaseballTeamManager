@@ -1,4 +1,4 @@
-package Views2;
+package Views;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;

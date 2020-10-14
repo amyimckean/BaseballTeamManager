@@ -10,7 +10,7 @@ import javax.swing.DefaultListModel;
 import Enums.PlayerTypeEnum;
 import Factories.CurrentTeam;
 import Models.*;
-import Views2.BaseballManagerFrame;
+import Views.BaseballManagerFrame;
 
 public class BaseballManagerController {
 

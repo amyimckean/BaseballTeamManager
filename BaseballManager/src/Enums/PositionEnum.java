@@ -17,10 +17,6 @@ public enum PositionEnum {
 		label = string;
 	}
 
-	private void Classes(String label) {
-        this.label = label;
-    }
-
 	public String toString() {
 		return this.label;
 	}

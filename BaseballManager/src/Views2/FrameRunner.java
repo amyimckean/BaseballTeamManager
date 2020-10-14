@@ -1,14 +1,9 @@
-package Views;
-
-import java.util.List;
+package Views2;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
 import Controllers.BaseballManagerController;
-import Enums.PlayerTypeEnum;
-import Factories.CurrentTeam;
-import Models.PlayerModel;
 
 public class FrameRunner {
 	
@@ -30,7 +25,7 @@ public class FrameRunner {
 		@Override
 		public void run() {
 			BaseballManagerFrame frame = new BaseballManagerFrame("Baseball Manager");
-			BaseballManagerController controller = new BaseballManagerController(frame);
+			new BaseballManagerController(frame);
 			createAndShowGUI(frame);
 		}
     };

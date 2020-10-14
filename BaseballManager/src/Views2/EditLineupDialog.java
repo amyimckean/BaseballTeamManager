@@ -1,23 +1,20 @@
-package Views;
+package Views2;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.AbstractList;
-import java.util.List;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-
 import Models.Pair;
 import Models.PlayerModel;
 
+@SuppressWarnings("rawtypes")
 public class EditLineupDialog {
 	private JDialog dialog;
 	private JPanel panel;
 	private JComboBox availablePlayers;
 	private JComboBox lineupNumber;
 	
+	@SuppressWarnings("unchecked")
 	public JDialog getDialog() {
 		if(dialog == null) {
 			dialog = new JDialog();
@@ -53,7 +50,7 @@ public class EditLineupDialog {
 		GridBagConstraints c = ViewHelper.GridBagConstraints();
         c.gridx = 2;
         c.gridy = 2;
-        c.anchor = c.SOUTHEAST;
+        c.anchor = GridBagConstraints.SOUTHEAST;
         ViewHelper.createButton("Save", c, panel, 2, 3, listen);
 		dialog.pack();
 	}
@@ -62,8 +59,9 @@ public class EditLineupDialog {
 		return new Pair((PlayerModel)availablePlayers.getSelectedItem(), (String)lineupNumber.getSelectedItem());
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void updateViewData(DefaultListModel players) {
-		DefaultComboBoxModel model = new DefaultComboBoxModel(players.toArray());
-		availablePlayers.setModel(model);
+			DefaultComboBoxModel model = new DefaultComboBoxModel(players.toArray());
+			availablePlayers.setModel(model);
 	}
 }

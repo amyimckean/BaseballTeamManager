@@ -1,27 +1,21 @@
-package Views;
+package Views2;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionListener;
-
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import Models.Pair;
+import javax.swing.*;
 import Models.PitcherModel;
-import Models.PlayerModel;
+
 
 public class SelectPitcherDialog {
 	private JDialog dialog;
 	private JPanel panel;
+	@SuppressWarnings("rawtypes")
 	private JComboBox availablePitchers;
 	
 	
+	@SuppressWarnings("rawtypes")
 	public JDialog getDialog() {
 		if(dialog == null) {
 			dialog = new JDialog();
@@ -50,7 +44,7 @@ public class SelectPitcherDialog {
 		GridBagConstraints c = ViewHelper.GridBagConstraints();
         c.gridx = 2;
         c.gridy = 2;
-        c.anchor = c.SOUTHEAST;
+        c.anchor = GridBagConstraints.SOUTHEAST;
         ViewHelper.createButton("Save", c, panel, 2, 3, listen);
 		dialog.pack();
 	}
@@ -60,6 +54,7 @@ public class SelectPitcherDialog {
 		return (PitcherModel)availablePitchers.getSelectedItem();
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void updateViewData(DefaultListModel players) {
 		DefaultComboBoxModel model = new DefaultComboBoxModel(players.toArray());
 		availablePitchers.setModel(model);

@@ -1,11 +1,9 @@
 package Models;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 import javax.swing.table.AbstractTableModel;
 
+@SuppressWarnings("serial")
 public class PitcherTableModel extends AbstractTableModel  {
 	List<PlayerModel> pitchers;
     private static final String[] columns = new String[] {"Number", "Player", "Bats/Throws"};

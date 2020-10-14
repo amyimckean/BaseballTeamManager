@@ -1,11 +1,9 @@
 package Models;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 import javax.swing.table.AbstractTableModel;
 
+@SuppressWarnings("serial")
 public class PitchTableModel extends AbstractTableModel  {
 	List<PitchModel> pitches;
     private static final String[] columns = new String[] {"Pitch", "Speed"};

@@ -1,4 +1,4 @@
-package Views;
+package Views2;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -8,13 +8,9 @@ import java.util.Map;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
-
-import Models.PlayerModel;
 
 public class ViewHelper {
 	
@@ -59,7 +55,8 @@ public class ViewHelper {
     }
 
     private static JTextField getPlayer(String name) {
-	   	 JTextField field = new JTextField(name) {
+	   	 @SuppressWarnings("serial")
+		JTextField field = new JTextField(name) {
 		   	    @Override public void setBorder(Border border) {
 		 }};
 		 field.setHorizontalAlignment(JLabel.CENTER);

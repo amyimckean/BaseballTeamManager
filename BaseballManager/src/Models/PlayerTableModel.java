@@ -1,15 +1,11 @@
 package Models;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 
+@SuppressWarnings("serial")
 public class PlayerTableModel extends AbstractTableModel  {
 	List<PlayerModel> players;
     private static final String[] columns = new String[] {"Line-Up", "Number", "Player", "Bats/Throws"};

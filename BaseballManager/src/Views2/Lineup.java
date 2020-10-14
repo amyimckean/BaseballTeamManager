@@ -1,4 +1,4 @@
-package Views;
+package Views2;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,16 +7,13 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableModel;
 
-import Models.PlayerModel;
-
+@SuppressWarnings({ "unchecked", "rawtypes" })
 public class Lineup {
 	private JPanel panel;
-	private JList<?> list;
+	private JList list;
 	private JTable table;
-	private ListModel players;
 	private JDialog dialog;
 	
-    @SuppressWarnings("unchecked")
 	public JPanel getLineup() {
     	if(panel == null) {
     		panel = ViewHelper.getGridbagPanel();
@@ -31,7 +28,7 @@ public class Lineup {
 	        c.gridy = 2;
 	        panel.add(getTableControl(), c);
 	        JLabel label2 = new JLabel("Bench");
-	        c.anchor = c.CENTER;
+	        c.anchor = GridBagConstraints.CENTER;
 	        c.gridx = 2;
 	        c.gridy = 1;
 	        panel.add(label2, c);
@@ -61,8 +58,8 @@ public class Lineup {
     	return tablePanel;
     }
     
-    public void updateViewData(ListModel players, TableModel tplayers) {
-    	list.setModel(players);
+    public void updateViewData(ListModel<?> players, TableModel tplayers) {
+    	list.setModel((ListModel<?>) players);
     	table.setModel(tplayers);
         table.getColumnModel().getColumn(0).setPreferredWidth(20);
         table.getColumnModel().getColumn(1).setPreferredWidth(40);

@@ -1,27 +1,16 @@
-package Views;
+package Views2;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.ListModel;
-import javax.swing.ListSelectionModel;
+import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableModel;
 
-import Models.PitchTableModel;
-import Models.PitcherModel;
-import Models.PitcherTableModel;
-import Models.PlayerTableModel;
+import Models.*;
 
 public class Bullpen {
 	private JPanel panel;
@@ -29,7 +18,6 @@ public class Bullpen {
 	private JTable playerTable;
 	private JDialog dialog;
 	private PitcherTableModel pitcherModel;
-	private PitchTableModel pitchModel;
 	
 	public JPanel getBullpen() {
     	if(panel == null) {
@@ -43,10 +31,10 @@ public class Bullpen {
 
 	        c.gridx = 1;
 	        c.gridy = 2;
-	        c.anchor = c.NORTH;
+	        c.anchor = GridBagConstraints.NORTH;
 	        panel.add(getTableControl(), c);
 	        JLabel label2 = new JLabel("Pitches");
-	        c.anchor = c.CENTER;
+	        c.anchor = GridBagConstraints.CENTER;
 	        c.gridx = 2;
 	        c.gridy = 1;
 	        panel.add(label2, c);

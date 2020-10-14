@@ -7,12 +7,8 @@ import java.util.Observer;
 
 import javax.swing.*;
 
-import javax.swing.JButton;
-import javax.swing.border.EmptyBorder;
-import javax.swing.table.TableModel;
+import Models1.*;
 
-import Models.*;
-import java.util.List;
 import Enums.ViewEnum;
 
 @SuppressWarnings("serial")
@@ -51,11 +47,11 @@ public class BaseballManagerFrame extends JFrame implements Observer {
 	    }
 	    
 	    public void setData(DefaultListModel<PlayerModel> players, PlayerTableModel lineupPlayers, PitcherTableModel pitchers, DefaultListModel<PitcherModel> allPitchers) {
-	    	editDialog.updateData(players);
-	    	lineup.updateData(players, lineupPlayers);
-	    	field.updateData(lineupPlayers.getDataModel());
-	    	bullpen.updateData(pitchers);
-	    	selectDialog.updateData(allPitchers);
+	    	editDialog.updateViewData(players);
+	    	lineup.updateViewData(players, lineupPlayers);
+	    	field.updateViewData(lineupPlayers.getDataModel());
+	    	bullpen.updateViewData(pitchers);
+	    	selectDialog.updateViewData(allPitchers);
 	    }
 	    
 		public void update(Observable o, Object arg) {

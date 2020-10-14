@@ -9,8 +9,8 @@ import java.util.List;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import Models.Pair;
-import Models.PlayerModel;
+import Models1.Pair;
+import Models1.PlayerModel;
 
 public class EditLineupDialog {
 	private JDialog dialog;
@@ -62,7 +62,7 @@ public class EditLineupDialog {
 		return new Pair((PlayerModel)availablePlayers.getSelectedItem(), (String)lineupNumber.getSelectedItem());
 	}
 	
-	public void updateData(DefaultListModel players) {
+	public void updateViewData(DefaultListModel players) {
 		DefaultComboBoxModel model = new DefaultComboBoxModel(players.toArray());
 		availablePlayers.setModel(model);
 	}

@@ -16,7 +16,7 @@ import javax.swing.border.EmptyBorder;
 import DataProviders.LineupDataProvider;
 import Enums.LeftRightEnum;
 import Enums.PositionEnum;
-import Models.PlayerModel;
+import Models1.PlayerModel;
 
 public class Field {
 	JPanel panel;
@@ -30,7 +30,7 @@ public class Field {
     	return panel;
     }
     
-    public void updateData(List<PlayerModel> players) {
+    public void updateViewData(List<PlayerModel> players) {
     	this.players = players;
     	setField();
     	panel.updateUI();

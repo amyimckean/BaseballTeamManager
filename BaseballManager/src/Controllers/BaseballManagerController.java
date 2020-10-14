@@ -6,13 +6,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 import Enums.PlayerTypeEnum;
 import Factories.CurrentTeam;
-import Models.*;
+import Models1.*;
 import Views.BaseballManagerFrame;
 
 public class BaseballManagerController {

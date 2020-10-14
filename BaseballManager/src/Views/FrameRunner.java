@@ -8,7 +8,7 @@ import javax.swing.UIManager;
 import Controllers.BaseballManagerController;
 import Enums.PlayerTypeEnum;
 import Factories.CurrentTeam;
-import Models.PlayerModel;
+import Models1.PlayerModel;
 
 public class FrameRunner {
 	

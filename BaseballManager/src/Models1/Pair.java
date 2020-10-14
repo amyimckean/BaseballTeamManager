@@ -1,4 +1,4 @@
-package Models;
+package Models1;
 
 public class Pair {
 	private PlayerModel value;

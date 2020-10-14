@@ -7,7 +7,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableModel;
 
-import Models.PlayerModel;
+import Models1.PlayerModel;
 
 public class Lineup {
 	private JPanel panel;
@@ -61,7 +61,7 @@ public class Lineup {
     	return tablePanel;
     }
     
-    public void updateData(ListModel players, TableModel tplayers) {
+    public void updateViewData(ListModel players, TableModel tplayers) {
     	list.setModel(players);
     	table.setModel(tplayers);
         table.getColumnModel().getColumn(0).setPreferredWidth(20);

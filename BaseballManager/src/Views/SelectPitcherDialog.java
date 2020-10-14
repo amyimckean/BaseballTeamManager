@@ -12,9 +12,9 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Models.Pair;
-import Models.PitcherModel;
-import Models.PlayerModel;
+import Models1.Pair;
+import Models1.PitcherModel;
+import Models1.PlayerModel;
 
 public class SelectPitcherDialog {
 	private JDialog dialog;
@@ -60,7 +60,7 @@ public class SelectPitcherDialog {
 		return (PitcherModel)availablePitchers.getSelectedItem();
 	}
 	
-	public void updateData(DefaultListModel players) {
+	public void updateViewData(DefaultListModel players) {
 		DefaultComboBoxModel model = new DefaultComboBoxModel(players.toArray());
 		availablePitchers.setModel(model);
 	}

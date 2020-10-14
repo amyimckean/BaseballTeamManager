@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
-import Models.PlayerModel;
+import Models1.PlayerModel;
 
 public class ViewHelper {
 	

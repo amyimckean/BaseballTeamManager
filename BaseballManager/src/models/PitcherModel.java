@@ -12,5 +12,9 @@ public class PitcherModel extends PlayerModel {
 
 	public void setPitches(List<PitchModel> pitches) {
 		this.pitches = pitches;
+	}	
+	
+	public String toString() {
+		return getName() + " #" + getNumber();
 	}
 }

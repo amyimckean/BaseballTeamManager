@@ -3,59 +3,90 @@ package Views;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
-
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableModel;
 
 import Models.PlayerModel;
 
 public class Lineup {
-	JPanel panel;
-	JList list;
+	private JPanel panel;
+	private JList<?> list;
+	private JTable table;
+	private ListModel players;
+	private JDialog dialog;
 	
     @SuppressWarnings("unchecked")
 	public JPanel getLineup() {
     	if(panel == null) {
-    		panel = new JPanel();
-    		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
-	        GridBagLayout gridbag = new GridBagLayout();
-	        GridBagConstraints c = new GridBagConstraints();
-	        panel.setLayout(gridbag);
-	        
-	        JTable table = new JTable();
-	        JLabel label = new JLabel("Manage Hitting Line-Up");
-	        panel.add(label);
+    		panel = ViewHelper.getGridbagPanel();
+    		GridBagConstraints c = ViewHelper.GridBagConstraints();
 
-	        panel.add(table);
-	    	 
+	        JLabel label = new JLabel("Manage Hitting Line-Up");
+	        c.gridx = 1;
+	        c.gridy = 1;
+	        panel.add(label, c);
+
+	        c.gridx = 1;
+	        c.gridy = 2;
+	        panel.add(getTableControl(), c);
 	        JLabel label2 = new JLabel("Bench");
-	        c.fill = GridBagConstraints.HORIZONTAL;
+	        c.anchor = c.CENTER;
 	        c.gridx = 2;
 	        c.gridy = 1;
-	        c.weightx = 1;
-	        c.insets = new Insets(5,5,5,5);
 	        panel.add(label2, c);
 	        
 	        list = new JList();
 	        c.fill = GridBagConstraints.BOTH;
 	        c.gridx = 2;
 	        c.gridy = 2;
-	        c.weightx = 1;
-	        c.insets = new Insets(5,5,5,5);
 	        panel.add(list, c);
     	}
     	return panel;
     }
     
-    public void setNonPlayingPlayers(ListModel players) {
+    private JPanel getTableControl() {     
+        JPanel tablePanel = ViewHelper.getGridbagPanel();
+		GridBagConstraints c = ViewHelper.GridBagConstraints();
+        c.gridx = 0;
+        c.gridy = 0;
+        table = new JTable();
+        table.setShowGrid(false);
+        table.setIntercellSpacing(new Dimension(0, 0));
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setViewportView(table);
+        scrollPane.setPreferredSize(new Dimension(400, 170));
+        tablePanel.add(scrollPane, c);
+        ViewHelper.createSizedButton("Edit Line-Up", c, tablePanel, 0, 1, editLineup, new Dimension(400, 30));
+    	return tablePanel;
+    }
+    
+    public void updateData(ListModel players, TableModel tplayers) {
     	list.setModel(players);
-    	list.updateUI();
+    	table.setModel(tplayers);
+        table.getColumnModel().getColumn(0).setPreferredWidth(20);
+        table.getColumnModel().getColumn(1).setPreferredWidth(40);
+        table.getColumnModel().getColumn(2).setPreferredWidth(100);
+        table.getColumnModel().getColumn(3).setPreferredWidth(40);
+        for(int i = 0; i < 4; ++i) {
+        	table.getColumnModel().getColumn(i).setCellRenderer(centerData());
+        }
+    }
+    
+    public void setLineupEditor(JDialog dialog) {
+    	this.dialog = dialog;
     }
       
-	ActionListener setMain = new ActionListener() {
+	ActionListener editLineup = new ActionListener() {
        public void actionPerformed(ActionEvent e) {
+    	   dialog.setVisible(true);
        }
    };
- 
+   
+   public DefaultTableCellRenderer centerData() {
+	   DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+	   centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+	   return centerRenderer;
+   }
+
 }

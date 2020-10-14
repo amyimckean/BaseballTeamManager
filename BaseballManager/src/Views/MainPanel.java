@@ -16,16 +16,15 @@ import Enums.ViewEnum;
 
 public class MainPanel extends Observable {
 	JLabel teamLabel;
-	ViewEnum view;
+	ViewEnum view  = ViewEnum.Main;
 	JPanel panel;
 	
     public JPanel getMainPanel() {
         if(panel == null) {
-        	panel = new JPanel();
+        	panel = ViewHelper.getGridbagPanel();
         	panel.setBorder(new EmptyBorder(5, 50, 5, 50));
-		    GridBagLayout gridbag = new GridBagLayout();
-		    GridBagConstraints c = new GridBagConstraints();
-		    panel.setLayout(gridbag);
+	        GridBagConstraints c = ViewHelper.GridBagConstraints();
+
 		    teamLabel = new JLabel("Team Manager");
 		    c.fill = GridBagConstraints.HORIZONTAL;
 		    c.gridx = 1;
@@ -33,11 +32,9 @@ public class MainPanel extends Observable {
 		    c.weightx = 1;
 		    c.insets = new Insets(5,5,5,5);
 		    panel.add(teamLabel, c);
-			ViewHelper.createButton("Manage Bullpen", gridbag, c, panel, 0, 2, setBullpen);
-			ViewHelper.createButton("Manage Hitting", gridbag, c, panel, 1, 2, setHitting);
-			ViewHelper.createButton("Manage Defense", gridbag, c, panel, 2, 2, setFielding);
-			 
-			panel.setVisible(true);
+			ViewHelper.createButton("Manage Bullpen", c, panel, 0, 2, setBullpen);
+			ViewHelper.createButton("Manage Hitting", c, panel, 1, 2, setHitting);
+			ViewHelper.createButton("Manage Defense", c, panel, 2, 2, setFielding);
         }
         return panel;
     }

@@ -31,7 +31,6 @@ public class FrameRunner {
 		public void run() {
 			BaseballManagerFrame frame = new BaseballManagerFrame("Baseball Manager");
 			BaseballManagerController controller = new BaseballManagerController(frame);
-			frame.setData(controller.getNonLineUpPositionPlayers());
 			createAndShowGUI(frame);
 		}
     };

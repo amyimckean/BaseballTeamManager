@@ -60,50 +60,50 @@ public class LineupDataProvider {
 	}
 	
 	public static PlayerModel GetPlayer1(){
-		return new PitcherModel(LeftRightEnum.Left, LeftRightEnum.Left, "Ken Griffey Jr.", PositionEnum.centerfield);
+		return new PlayerModel(LeftRightEnum.Left, LeftRightEnum.Left, "Ken Griffey Jr.", PositionEnum.centerfield);
 	}
 	
 	public static PlayerModel GetPlayer2(){
-		return new PitcherModel(LeftRightEnum.Right, LeftRightEnum.Right, "Alex Rodriguez", PositionEnum.shortstop);
+		return new PlayerModel(LeftRightEnum.Right, LeftRightEnum.Right, "Alex Rodriguez", PositionEnum.shortstop);
 	}
 	
 	public static PlayerModel GetPlayer3(){
-		return new PitcherModel(LeftRightEnum.Right, LeftRightEnum.Right, "Joey Cora", PositionEnum.second);
+		return new PlayerModel(LeftRightEnum.Right, LeftRightEnum.Right, "Joey Cora", PositionEnum.second);
 	}	
 	
 	public static PlayerModel GetPlayer4(){
-		return new PitcherModel(LeftRightEnum.Left, LeftRightEnum.Right, "Tino Martinez", PositionEnum.first);
+		return new PlayerModel(LeftRightEnum.Left, LeftRightEnum.Right, "Tino Martinez", PositionEnum.first);
 	}
 	
 	public static PlayerModel GetPlayer5(){
-		return new PitcherModel(LeftRightEnum.Right, LeftRightEnum.Right, "Mike Blowers", PositionEnum.third);
+		return new PlayerModel(LeftRightEnum.Right, LeftRightEnum.Right, "Mike Blowers", PositionEnum.third);
 	}
 	
 	public static PlayerModel GetPlayer6(){
-		return new PitcherModel(LeftRightEnum.Right, LeftRightEnum.Right, "Dan Wilson", PositionEnum.catcher);
+		return new PlayerModel(LeftRightEnum.Right, LeftRightEnum.Right, "Dan Wilson", PositionEnum.catcher);
 	}
 	
 	public static PlayerModel GetPlayer7(){
-		return new PitcherModel(LeftRightEnum.Right, LeftRightEnum.Right, "Jay Buhner", PositionEnum.rightfield);
+		return new PlayerModel(LeftRightEnum.Right, LeftRightEnum.Right, "Jay Buhner", PositionEnum.rightfield);
 	}
 	
 	public static PlayerModel GetPlayer8(){
-		return new PitcherModel(LeftRightEnum.Left, LeftRightEnum.Right, "Jose Cruz Jr.", PositionEnum.leftfield);
+		return new PlayerModel(LeftRightEnum.Left, LeftRightEnum.Right, "Jose Cruz Jr.", PositionEnum.leftfield);
 	}
 	
 	public static PlayerModel GetPlayer9(){
-		return new PitcherModel(LeftRightEnum.Right, LeftRightEnum.Right, "Rich Amaral", PositionEnum.shortstop);
+		return new PlayerModel(LeftRightEnum.Right, LeftRightEnum.Right, "Rich Amaral", PositionEnum.shortstop);
 	}
 	
 	public static PlayerModel GetPlayer10(){
-		return new PitcherModel(LeftRightEnum.Left, LeftRightEnum.Left, "John Olerud", PositionEnum.first);
+		return new PlayerModel(LeftRightEnum.Left, LeftRightEnum.Left, "John Olerud", PositionEnum.first);
 	}
 	
 	public static PlayerModel GetPlayer11(){
-		return new PitcherModel(LeftRightEnum.Right, LeftRightEnum.Right, "Edgar Martinez", PositionEnum.third);
+		return new PlayerModel(LeftRightEnum.Right, LeftRightEnum.Right, "Edgar Martinez", PositionEnum.third);
 	}
 	
 	public static PlayerModel GetPlayer12(){
-		return new PitcherModel(LeftRightEnum.Right, LeftRightEnum.Right, "Mike Cameron", PositionEnum.centerfield);
+		return new PlayerModel(LeftRightEnum.Right, LeftRightEnum.Right, "Mike Cameron", PositionEnum.centerfield);
 	}
 }

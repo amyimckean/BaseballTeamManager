@@ -15,8 +15,9 @@ public class CurrentTeamFactory implements PlayerFactory {
 		pitchers.add(LineupDataProvider.GetPitcher3());
 		pitchers.add(LineupDataProvider.GetPitcher4());
 		pitchers.add(LineupDataProvider.GetPitcher5());
+		int num = 50;
 		for(int i = 0; i < pitchers.size(); ++i){
-			pitchers.get(i).setNumber(i);
+			pitchers.get(i).setNumber(num + i);
 		}
 		return pitchers;
 	}

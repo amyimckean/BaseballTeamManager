@@ -3,14 +3,13 @@ package Models;
 import Enums.*;
 
 public class PlayerModel{
-	PositionEnum position;
-	String name;
-	LeftRightEnum bats;
-	LeftRightEnum throwing;
-	int throwingSpeed;
-	double homeToFirst;
-	boolean inTheGame;
-	int number;
+	private PositionEnum position;
+	private String name;
+	private LeftRightEnum bats;
+	private LeftRightEnum throwing;
+	private boolean inTheGame;
+	private int number;
+	private int lineupPos;
 	
 	public PlayerModel(LeftRightEnum bats, LeftRightEnum throwing, String name, PositionEnum pos) {
 		this.bats = bats;
@@ -36,24 +35,27 @@ public class PlayerModel{
 		return throwing;
 	}
 	
-	public int getThrowingSpeed() {
-		return throwingSpeed;
-	}
-	
-	public double getHomeToFirst() {
-		return homeToFirst;
-	}
-	
 	public boolean getInTheGame() {
 		return inTheGame;
 	}
 	
+	public void setInTheGame(boolean in) {
+		inTheGame = in;
+	}
 	public int getNumber() {
 		return number;
 	}
 	
+	public int getLineupPos() {
+		return lineupPos;
+	}
+	
 	public void setNumber(int num) {
 		number = num;
+	}
+	
+	public void setLineupPos(int pos) {
+		lineupPos = pos;
 	}
 	
 	public String toString() {

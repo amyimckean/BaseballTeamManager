@@ -12,9 +12,9 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Models1.Pair;
-import Models1.PitcherModel;
-import Models1.PlayerModel;
+import Models.Pair;
+import Models.PitcherModel;
+import Models.PlayerModel;
 
 public class SelectPitcherDialog {
 	private JDialog dialog;

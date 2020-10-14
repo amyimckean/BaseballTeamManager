@@ -3,7 +3,7 @@ package PitchDecorator;
 import java.util.ArrayList;
 import java.util.List;
 
-import Models1.PitchModel;
+import Models.PitchModel;
 
 public class Pitches extends PitchArsenal {
 	

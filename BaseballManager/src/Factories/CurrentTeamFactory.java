@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DataProviders.LineupDataProvider;
-import Models1.*;
+import Models.*;
 
 public class CurrentTeamFactory implements PlayerFactory {
 

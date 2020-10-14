@@ -3,7 +3,7 @@ package PitchDecorator;
 import java.util.List;
 
 import Enums.PitchTypeEnum;
-import Models1.PitchModel;
+import Models.PitchModel;
 
 public class CurveDecorator extends PitchArsenalDecorator {
 	PitchArsenal arsenal;

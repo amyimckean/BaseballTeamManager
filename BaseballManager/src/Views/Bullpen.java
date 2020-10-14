@@ -18,10 +18,10 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableModel;
 
-import Models1.PitchTableModel;
-import Models1.PitcherModel;
-import Models1.PitcherTableModel;
-import Models1.PlayerTableModel;
+import Models.PitchTableModel;
+import Models.PitcherModel;
+import Models.PitcherTableModel;
+import Models.PlayerTableModel;
 
 public class Bullpen {
 	private JPanel panel;

@@ -9,8 +9,8 @@ import java.util.List;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import Models1.Pair;
-import Models1.PlayerModel;
+import Models.Pair;
+import Models.PlayerModel;
 
 public class EditLineupDialog {
 	private JDialog dialog;

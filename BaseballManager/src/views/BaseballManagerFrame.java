@@ -6,10 +6,8 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.*;
-
-import Models1.*;
-
 import Enums.ViewEnum;
+import Models.*;
 
 @SuppressWarnings("serial")
 public class BaseballManagerFrame extends JFrame implements Observer {

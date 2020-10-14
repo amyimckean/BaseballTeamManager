@@ -3,7 +3,7 @@ package Factories;
 import java.util.List;
 
 import Enums.PlayerTypeEnum;
-import Models1.PlayerModel;
+import Models.PlayerModel;
 
 public class CurrentTeam {
 	

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import Enums.*;
 import Factories.*;
-import Models1.PitchModel;
+import Models.PitchModel;
 
 class PitchDecoratorTests {
 

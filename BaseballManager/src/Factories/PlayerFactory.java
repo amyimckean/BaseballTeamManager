@@ -2,7 +2,7 @@ package Factories;
 
 import java.util.List;
 
-import Models1.PlayerModel;
+import Models.PlayerModel;
 
 public interface PlayerFactory<T> {
 	

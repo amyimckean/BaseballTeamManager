@@ -16,7 +16,7 @@ import javax.swing.border.EmptyBorder;
 import DataProviders.LineupDataProvider;
 import Enums.LeftRightEnum;
 import Enums.PositionEnum;
-import Models1.PlayerModel;
+import Models.PlayerModel;
 
 public class Field {
 	JPanel panel;

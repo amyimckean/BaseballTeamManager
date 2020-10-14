@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import Enums.*;
 import Factories.*;
-import Models1.PitcherModel;
-import Models1.PlayerModel;
+import Models.PitcherModel;
+import Models.PlayerModel;
 
 class TeamFactoryTests {
 

@@ -7,7 +7,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableModel;
 
-import Models1.PlayerModel;
+import Models.PlayerModel;
 
 public class Lineup {
 	private JPanel panel;

@@ -23,7 +23,7 @@ public class EditLineupDialog extends PlayerNotifier {
     		dialog.add(panel);
     		GridBagConstraints c = ViewHelper.GridBagConstraints();
 
-	        JLabel label = new JLabel("Update Lineup");
+	        JLabel label = ViewHelper.getLabel("Update Lineup");
 	        c.gridx = 1;
 	        c.gridy = 1;
 	        c.gridwidth=2;

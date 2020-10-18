@@ -19,7 +19,7 @@ public class Lineup {
     		panel = ViewHelper.getGridbagPanel();
     		GridBagConstraints c = ViewHelper.GridBagConstraints();
 
-	        JLabel label = new JLabel("Manage Hitting Line-Up");
+	        JLabel label = ViewHelper.getLabel("Manage Hitting Line-Up");
 	        c.gridx = 1;
 	        c.gridy = 1;
 	        panel.add(label, c);
@@ -27,7 +27,7 @@ public class Lineup {
 	        c.gridx = 1;
 	        c.gridy = 2;
 	        panel.add(getTableControl(), c);
-	        JLabel label2 = new JLabel("Bench");
+	        JLabel label2 = ViewHelper.getLabel("Bench");
 	        c.anchor = GridBagConstraints.CENTER;
 	        c.gridx = 2;
 	        c.gridy = 1;

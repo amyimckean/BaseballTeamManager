@@ -22,7 +22,7 @@ public class MainPanel extends MainNotifier {
         	panel.setBorder(new EmptyBorder(5, 50, 5, 50));
 	        GridBagConstraints c = ViewHelper.GridBagConstraints();
 
-		    teamLabel = new JLabel("Team Manager");
+		    teamLabel = ViewHelper.getLabel("Team Manager");
 		    c.fill = GridBagConstraints.HORIZONTAL;
 		    c.gridx = 1;
 		    c.gridy = 0;

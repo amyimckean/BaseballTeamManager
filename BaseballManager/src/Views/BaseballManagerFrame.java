@@ -50,7 +50,7 @@ public class BaseballManagerFrame extends JFrame implements MainObserver {
 	    	editDialog.updateViewData(players);
 	    	lineup.updateViewData(players, lineupPlayers);
 	    	field.updateViewData(lineupPlayers.getDataModel());
-	    	bullpen.updateViewData(pitchers);
+	    	bullpen.updateViewData(pitchers, lineupPlayers.getDataModel());
 	    }
 
 		public void Update(ViewEnum view) {

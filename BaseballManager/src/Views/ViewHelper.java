@@ -47,14 +47,14 @@ public class ViewHelper {
     	 panel.setOpaque(false);
 	   	 GridLayout layout = new GridLayout(2,0);
 	   	 panel.setLayout(layout);
-	   	 panel.add(getPosition(name + ":"));
+	   	 panel.add(getLabel(name + ":"));
 	   	 panel.add(getPlayer(player));
 	   	 c.gridx = x;
 	   	 c.gridy = y;
 	   	 p.add(panel, c);
     }
-
-    private static JTextField getPlayer(String name) {
+    
+    protected static JTextField getPlayer(String name) {
 	   	 @SuppressWarnings("serial")
 		JTextField field = new JTextField(name) {
 		   	    @Override public void setBorder(Border border) {
@@ -67,8 +67,8 @@ public class ViewHelper {
 		 return field;
     }
     
-    private static JLabel getPosition(String pos) {
-   	   	 JLabel label = new JLabel(pos);
+    protected static JLabel getLabel(String text) {
+   	   	 JLabel label = new JLabel(text);
    	   	 label.setHorizontalAlignment(JLabel.CENTER);
 	   	 label.setBackground(new Color(Color.TRANSLUCENT));
 	   	 label.setOpaque(false);

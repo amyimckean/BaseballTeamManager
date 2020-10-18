@@ -11,8 +11,9 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 
 import Models.*;
+import Observer.PlayerNotifier;
 
-public class Bullpen {
+public class Bullpen  extends PlayerNotifier {
 	private JPanel panel;
 	private JTable pitchTable;
 	private JTable playerTable;
@@ -62,7 +63,7 @@ public class Bullpen {
         scrollPane.setViewportView(playerTable);
         scrollPane.setPreferredSize(new Dimension(300, 105));
         tablePanel.add(scrollPane, c);
-        ViewHelper.createSizedButton("Select Pitcher", c, tablePanel, 0, 1, editLineup, new Dimension(300, 30));
+        ViewHelper.createSizedButton("Select Pitcher", c, tablePanel, 0, 1, setPlayer, new Dimension(300, 30));
     	return tablePanel;
     }
     
@@ -91,18 +92,13 @@ public class Bullpen {
         playerTable.setRowSelectionInterval(0, 0);
     }
     
-    
-    public void setPitcherSelection(JDialog dialog) {
-    	this.dialog = dialog;
-    }
-      
-
-	ActionListener editLineup = new ActionListener() {
+    ActionListener setPlayer = new ActionListener() {
        public void actionPerformed(ActionEvent e) {
-    	   dialog.setVisible(true);
+    	    setNotifierValue(9, (PlayerModel) pitcherModel.getCurrentModel(playerTable.getSelectedRow()), true);
+	    	notifyObservers();
        }
    };
-   
+    
    public DefaultTableCellRenderer centerData() {
 	   DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 	   centerRenderer.setHorizontalAlignment( JLabel.CENTER );

@@ -1,18 +1,15 @@
 package Controllers;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import javax.swing.DefaultListModel;
-
 import Enums.PlayerTypeEnum;
 import Factories.CurrentTeam;
 import Models.*;
+import Observer.PlayerObserver;
 import Views.BaseballManagerFrame;
 
-public class BaseballManagerController {
+public class BaseballManagerController implements PlayerObserver {
 
 	BaseballManagerFrame frame;
 	List<PlayerModel> players;
@@ -27,9 +24,8 @@ public class BaseballManagerController {
 		CurrentTeam team = new CurrentTeam();
 		this.players = team.GetPlayers(PlayerTypeEnum.Position);
 		this.pitchers = team.GetPlayers(PlayerTypeEnum.Pitcher); 
+		frame.setObservers(this);
 		frame.setData(getNonLineUpPositionPlayers(), getLineUpPositionPlayers(), getBullpenPitchers(), getPitchers());
-		frame.setPlayerUpdateAction(saveLineup);
-		frame.setPitcherUpdateAction(savePitcher);
 	}
 
 	public DefaultListModel<PlayerModel> getNonLineUpPositionPlayers() {
@@ -57,34 +53,35 @@ public class BaseballManagerController {
 		return new PitcherTableModel(pitchers);
 	}
 	
-	 ActionListener saveLineup = new ActionListener() {
-     public void actionPerformed(ActionEvent e) {
-    	 int index = frame.getUpdatedPlayer().getIndex();
-    	 PlayerModel newPlayer = frame.getUpdatedPlayer().getPlayer();
-    	 if(players.stream().anyMatch(x -> x.getLineupPos() == index && x.getInTheGame())) {
-    		 players.stream().filter(x -> x.getLineupPos() == index).findFirst().get().setInTheGame(false);
-    		 players.stream().filter(x -> x.getLineupPos() == index).findFirst().get().setLineupPos(0);
-    	 }
-		 players.stream().filter(x -> x.getNumber() == newPlayer.getNumber()).findFirst().get().setInTheGame(true);
-		 players.stream().filter(x -> x.getNumber() == newPlayer.getNumber()).findFirst().get().setLineupPos(index);
+	@Override
+	public void Update(int index, PlayerModel player, boolean remove) {
+		if(remove) {
+			updatePitcher(index, player);
+		}
+		else {
+			updatePlayer(index, player);
+		}
 		 frame.setData(getNonLineUpPositionPlayers(), getLineUpPositionPlayers(), getBullpenPitchers(), getPitchers());
-     }
-	};
- 
-	  ActionListener savePitcher = new ActionListener() {
-	  public void actionPerformed(ActionEvent e) {
-		 int index = 9; //Index for the pitcher
-	 	 PitcherModel newPitcher = frame.getUpdatedPitcher();
+	}
+	
+	private void updatePlayer(int index, PlayerModel player) {
+   	 if(players.stream().anyMatch(x -> x.getLineupPos() == index && x.getInTheGame())) {
+   		 players.stream().filter(x -> x.getLineupPos() == index).findFirst().get().setInTheGame(false);
+   		 players.stream().filter(x -> x.getLineupPos() == index).findFirst().get().setLineupPos(0);
+   	 }
+		 players.stream().filter(x -> x.getNumber() == player.getNumber()).findFirst().get().setInTheGame(true);
+		 players.stream().filter(x -> x.getNumber() == player.getNumber()).findFirst().get().setLineupPos(index);
+	}
+	
+	private void updatePitcher(int index, PlayerModel player) {
 	 	 if(players.stream().anyMatch(x -> x.getLineupPos() == index)) {
 	 		 players.get(index).setInTheGame(true);
 	 		 players.get(index).setLineupPos(0);
 	 		 players.remove(index);
 	 	 }
-	 	 newPitcher.setInTheGame(true);
-	 	 newPitcher.setLineupPos(index);
-	     players.add(8, newPitcher);
-		 frame.setData(getNonLineUpPositionPlayers(), getLineUpPositionPlayers(), getBullpenPitchers(), getPitchers());
-	  }
-	};
+	 	 player.setInTheGame(true);
+	 	 player.setLineupPos(index);
+	     players.add(index, player);
+	}
 }
 

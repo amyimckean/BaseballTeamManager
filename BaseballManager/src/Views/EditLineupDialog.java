@@ -1,20 +1,20 @@
 package Views;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-import Models.Pair;
 import Models.PlayerModel;
+import Observer.PlayerNotifier;
 
-@SuppressWarnings("rawtypes")
-public class EditLineupDialog {
+@SuppressWarnings({ "unchecked", "rawtypes" })
+public class EditLineupDialog extends PlayerNotifier {
 	private JDialog dialog;
 	private JPanel panel;
 	private JComboBox availablePlayers;
 	private JComboBox lineupNumber;
 	
-	@SuppressWarnings("unchecked")
 	public JDialog getDialog() {
 		if(dialog == null) {
 			dialog = new JDialog();
@@ -40,26 +40,23 @@ public class EditLineupDialog {
 	        c.gridx = 2;
 	        c.gridy = 2;
     		panel.add(availablePlayers, c); 
+            c.gridx = 2;
+            c.gridy = 2;
+            c.anchor = GridBagConstraints.SOUTHEAST;
+            ViewHelper.createButton("Save", c, panel, 2, 3, setPlayer);
 		}
 		
 		dialog.pack();
 		return dialog;
 	}
 	
-	public void setActionListener(ActionListener listen) {
-		GridBagConstraints c = ViewHelper.GridBagConstraints();
-        c.gridx = 2;
-        c.gridy = 2;
-        c.anchor = GridBagConstraints.SOUTHEAST;
-        ViewHelper.createButton("Save", c, panel, 2, 3, listen);
-		dialog.pack();
-	}
-	
-	public Pair getCurrentPlayer(){
-		return new Pair((PlayerModel)availablePlayers.getSelectedItem(), (String)lineupNumber.getSelectedItem());
-	}
-	
-	@SuppressWarnings("unchecked")
+    ActionListener setPlayer = new ActionListener() {
+       public void actionPerformed(ActionEvent e) {
+    	    setNotifierValue(8, (PlayerModel)availablePlayers.getSelectedItem(), false);
+	    	notifyObservers();
+       }
+   };
+    
 	public void updateViewData(DefaultListModel players) {
 			DefaultComboBoxModel model = new DefaultComboBoxModel(players.toArray());
 			availablePlayers.setModel(model);

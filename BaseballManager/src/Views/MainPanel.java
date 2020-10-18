@@ -4,17 +4,16 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Observable;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Enums.ViewEnum;
+import Observer.MainNotifier;
 
-public class MainPanel extends Observable {
+public class MainPanel extends MainNotifier {
 	JLabel teamLabel;
-	ViewEnum view  = ViewEnum.Main;
 	JPanel panel;
 	
     public JPanel getMainPanel() {
@@ -40,43 +39,32 @@ public class MainPanel extends Observable {
 	public JLabel getTeamLabel() {
 		return teamLabel;
 	}
-	
-	public ViewEnum getView() {
-		return view;
-	}
-	
    
 	ActionListener setMain = new ActionListener() {
        public void actionPerformed(ActionEvent e) {
-	        view = ViewEnum.Main;
-	        ViewChanged();
+    	   setNotifierValue(ViewEnum.Main);
+       		notifyObservers();
        }
    };
  
      ActionListener setBullpen = new ActionListener() {
         public void actionPerformed(ActionEvent e) {
-	        view = ViewEnum.Bullpen;
-	        ViewChanged();
+        	setNotifierValue(ViewEnum.Bullpen);
+	    	notifyObservers();
         }
     };
      
      ActionListener setHitting = new ActionListener() {
         public void actionPerformed(ActionEvent e) {
-	        view = ViewEnum.Lineup;
-	        ViewChanged();
+        	setNotifierValue(ViewEnum.Lineup);
+	    	notifyObservers();
         }
     };
      
      ActionListener setFielding = new ActionListener() {
         public void actionPerformed(ActionEvent e) {
-	        view = ViewEnum.Field;
-	        ViewChanged();
+        	setNotifierValue(ViewEnum.Field);
+	    	notifyObservers();
         }
     };
-    
-    public void ViewChanged() {
-    	setChanged();
-    	notifyObservers();
-    }
- 
 }

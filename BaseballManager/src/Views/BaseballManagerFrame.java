@@ -1,23 +1,20 @@
 package Views;
 
 import java.awt.*;
-import java.awt.event.*;
-import java.util.Observable;
-import java.util.Observer;
-
 import javax.swing.*;
+import Controllers.BaseballManagerController;
 import Enums.ViewEnum;
 import Models.*;
+import Observer.*;
 
 @SuppressWarnings("serial")
-public class BaseballManagerFrame extends JFrame implements Observer {
+public class BaseballManagerFrame extends JFrame implements MainObserver {
 		MainPanel mainPanel;
 		Lineup lineup;
 	    Bullpen bullpen;
 	    Field field;
 	    JPanel internalPanel;
 		EditLineupDialog editDialog;
-		SelectPitcherDialog selectDialog;
 	    
 	    public BaseballManagerFrame(String name) {
 	        super(name);
@@ -25,22 +22,27 @@ public class BaseballManagerFrame extends JFrame implements Observer {
 	        internalPanel = new JPanel();
 	        internalPanel.setBackground(Color.white);
 	        mainPanel = new MainPanel();
-	        mainPanel.addObserver(this);
+	        mainPanel.registerObserver(this);
 	        lineup = new Lineup();
 	        field = new Field();
 	        bullpen = new Bullpen();
 	        editDialog = new EditLineupDialog();
-	        selectDialog = new SelectPitcherDialog();
 	        setFrame();
 	        
 	    } 
 	    
+	    public void setObservers(BaseballManagerController controller) {
+	    	bullpen.registerObserver(controller);
+	    	editDialog.registerObserver(controller);
+	    	
+	    }
+	    
 	    boolean first = true;
-	    public void setVisibility() {
+	    public void setVisibility(ViewEnum view) {
 	    	if(!first) {mainPanel.getTeamLabel().setVisible(false);}
-	    	lineup.getLineup().setVisible(mainPanel.getView() == ViewEnum.Lineup ? true : false);
-	        bullpen.getBullpen().setVisible(mainPanel.getView() == ViewEnum.Bullpen ? true : false);
-	    	field.getField().setVisible(mainPanel.getView() == ViewEnum.Field ? true : false);
+	    	lineup.getLineup().setVisible(view == ViewEnum.Lineup ? true : false);
+	        bullpen.getBullpen().setVisible(view == ViewEnum.Bullpen ? true : false);
+	    	field.getField().setVisible(view == ViewEnum.Field ? true : false);
 	    	first = false;
 	    }
 	    
@@ -49,30 +51,13 @@ public class BaseballManagerFrame extends JFrame implements Observer {
 	    	lineup.updateViewData(players, lineupPlayers);
 	    	field.updateViewData(lineupPlayers.getDataModel());
 	    	bullpen.updateViewData(pitchers);
-	    	selectDialog.updateViewData(allPitchers);
 	    }
-	    
-		public void update(Observable o, Object arg) {
-			setVisibility();
-	        pack();
+
+		public void Update(ViewEnum view) {
+			setVisibility(view);
+	        pack();	
 		}
-		
-		public Pair getUpdatedPlayer() {
-			return editDialog.getCurrentPlayer();
-		}
-		
-		public PitcherModel getUpdatedPitcher() {
-			return selectDialog.getCurrentPitcher();
-		}
-		
-		public void setPlayerUpdateAction(ActionListener listen) {
-			editDialog.setActionListener(listen);
-		}
-		
-		public void setPitcherUpdateAction(ActionListener listen) {
-			selectDialog.setActionListener(listen);
-		}
-		
+
 	     protected void setFrame() {
 	    	add(internalPanel);
 	        GridBagLayout gridbag = new GridBagLayout();
@@ -83,7 +68,6 @@ public class BaseballManagerFrame extends JFrame implements Observer {
 	        internalPanel.add(mainPanel.getMainPanel(), c);
 	        c.gridy = 0;
 	        lineup.setLineupEditor(editDialog.getDialog());
-	        bullpen.setPitcherSelection(selectDialog.getDialog());
 	        internalPanel.add(lineup.getLineup(), c);
 	        internalPanel.add(field.getField(), c);
 	        internalPanel.add(bullpen.getBullpen(), c);

@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 
 import Controllers.BaseballManagerController;
+import Enums.ViewEnum;
 
 public class FrameRunner {
 	
@@ -34,7 +35,7 @@ public class FrameRunner {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //Display the window.
         frame.setVisible(true);
-        frame.setVisibility();
+        frame.setVisibility(ViewEnum.Main);
         frame.pack();
     }
 }

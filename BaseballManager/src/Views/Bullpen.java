@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -39,7 +38,7 @@ public class Bullpen  extends PlayerNotifier {
 	        playerTable = getTableControl(true);
 	        JPanel tablePanel = getTablePanel(playerTable, new Dimension(300, 105));
 	        ViewHelper.createSizedButton("Select Pitcher", c, tablePanel, 0, 1, setPlayer, new Dimension(300, 30));
-			c.anchor = c.NORTH;
+			c.anchor = GridBagConstraints.NORTH;
 	        panel.add(tablePanel, c);
 
 	        c.gridy = 2;

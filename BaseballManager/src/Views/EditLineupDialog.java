@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import Models.PlayerModel;
+import Models.PlayerTableModel;
 import Observer.PlayerNotifier;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
@@ -14,10 +15,12 @@ public class EditLineupDialog extends PlayerNotifier {
 	private JPanel panel;
 	private JComboBox availablePlayers;
 	private JComboBox lineupNumber;
+	private PlayerTableModel lineup;
 	
 	public JDialog getDialog() {
 		if(dialog == null) {
 			dialog = new JDialog();
+			dialog.setTitle("Update Lineup");
 			dialog.setBackground(Color.WHITE);
     		panel = ViewHelper.getGridbagPanel();
     		dialog.add(panel);
@@ -52,13 +55,21 @@ public class EditLineupDialog extends PlayerNotifier {
 	
     ActionListener setPlayer = new ActionListener() {
        public void actionPerformed(ActionEvent e) {
-    	    setNotifierValue(8, (PlayerModel)availablePlayers.getSelectedItem(), false);
+    	    setNotifierValue(lineupNumber.getSelectedIndex() + 1, (PlayerModel)availablePlayers.getSelectedItem(), false);
 	    	notifyObservers();
+	    	for(int i = 0; i < lineup.getRowCount() - 1; ++i) {
+	    		if(lineup.getValueAt(i, 2) == ""){
+	    			System.out.println(lineup.getValueAt(i, 0));
+	    			lineupNumber.setSelectedIndex(i);
+	    			break;
+	    		}
+	    	}
        }
    };
     
-	public void updateViewData(DefaultListModel players) {
+	public void updateViewData(DefaultListModel players, PlayerTableModel lineupPlayers) {
 			DefaultComboBoxModel model = new DefaultComboBoxModel(players.toArray());
 			availablePlayers.setModel(model);
+			lineup = lineupPlayers;
 	}
 }

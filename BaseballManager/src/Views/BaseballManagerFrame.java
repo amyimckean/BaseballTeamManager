@@ -47,7 +47,7 @@ public class BaseballManagerFrame extends JFrame implements MainObserver {
 	    }
 	    
 	    public void setData(DefaultListModel<PlayerModel> players, PlayerTableModel lineupPlayers, PitcherTableModel pitchers, DefaultListModel<PitcherModel> allPitchers) {
-	    	editDialog.updateViewData(players);
+	    	editDialog.updateViewData(players, lineupPlayers);
 	    	lineup.updateViewData(players, lineupPlayers);
 	    	field.updateViewData(lineupPlayers.getDataModel());
 	    	bullpen.updateViewData(pitchers, lineupPlayers.getDataModel());

@@ -34,6 +34,7 @@ public class Lineup {
 	        panel.add(label2, c);
 	        
 	        list = new JList();
+	        c.insets = new Insets(15,5,5,5);
 	        c.fill = GridBagConstraints.BOTH;
 	        c.gridx = 2;
 	        c.gridy = 2;

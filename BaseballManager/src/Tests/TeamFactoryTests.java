@@ -36,7 +36,6 @@ class TeamFactoryTests {
 				.filter(x -> x.getName() == "Randy Johnson")
 	            .findFirst()
 	            .get();
-		System.out.print(pitcher);
 		Assert.assertTrue(pitcher.pitches.stream().anyMatch((x) -> x.getPitch() == PitchTypeEnum.Slider));
 	}
 

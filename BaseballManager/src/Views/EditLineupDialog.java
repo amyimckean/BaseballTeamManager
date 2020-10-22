@@ -59,7 +59,6 @@ public class EditLineupDialog extends PlayerNotifier {
 	    	notifyObservers();
 	    	for(int i = 0; i < lineup.getRowCount() - 1; ++i) {
 	    		if(lineup.getValueAt(i, 2) == ""){
-	    			System.out.println(lineup.getValueAt(i, 0));
 	    			lineupNumber.setSelectedIndex(i);
 	    			break;
 	    		}
